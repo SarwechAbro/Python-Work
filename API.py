@@ -2,6 +2,14 @@ import json
 import requests
 import sys
 
-res = requests.get("https://www.apple.itunes.")
+if len(sys.argv)!=2:
+    sys.exit()
+
+res = requests.get("https://itunes.apple.com/search?entity=song&liit=50&term="+sys.argv[1])
 o = res.json()
-print(0)
+
+print(o)
+
+
+#for result in o["results"]:
+#   print(result["trackName"])

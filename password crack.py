@@ -7,7 +7,7 @@ print(len(up))
 while pw!=up:
         pw="" 
         for latter in range(len(up)):
-              guess_pw = pas[randint(0,16)]
+              guess_pw = pas[randint(0,15)]
               pw=str(guess_pw)+str(pw)
               print("Cracking Password...")
               os.system("cls")
