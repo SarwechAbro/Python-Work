@@ -11,5 +11,5 @@ o = res.json()
 print(o)
 
 
-#for result in o["results"]:
-#   print(result["trackName"])
+for result in o["results"]:
+   print(result["trackName"])
