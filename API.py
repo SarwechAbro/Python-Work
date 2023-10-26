@@ -8,7 +8,6 @@ if len(sys.argv)!=2:
 res = requests.get("https://itunes.apple.com/search?entity=song&liit=50&term="+sys.argv[1])
 o = res.json()
 
-print(o)
 
 
 for result in o["results"]:
