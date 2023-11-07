@@ -1,4 +1,5 @@
 a = input("Enter Your Name: ")
-rev = a.strip
-print(rev)
+rev = a.split()
+di = rev[0::1]
+print(di)
 
