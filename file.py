@@ -1,12 +1,15 @@
 
-with open('Newzealand lost.txt', 'r') as file:
+with open('intro.txt', 'r') as file:
     for word in file: 
      my_list = word.split()
      #print(my_list)
-     qu = input("Enter A word which Do You Want To Find: ")
+     qu = input("Ask Me Everything: ")
      query = qu.split()
-     #print(query)
-     var = []
+     with open('queries.txt', 'a') as f:
+      for que in query:
+          f.write(que)
+          f.write(" ")
+      var = []
      for words in query:
         for lat in my_list:
              if words==lat:
@@ -16,6 +19,6 @@ with open('Newzealand lost.txt', 'r') as file:
 for value in set(var):
      count = var.count(value)
      ind = [i for i, x in enumerate(my_list) if x == value]
-     print(value, count ,'times in history on index', ind)
+     print(value, count ,'times in paragraph on index', ind)
      
-     
+    

@@ -1,0 +1,34 @@
+Lab  Tasks  #04
+
+
+List data structure and list methods in python
+
+1.	Create a list of your current semester courses
+2.	Add course Python in the end of semester courses list 
+3.	Create an empty list with the name my_course
+4.	Extend my_course list with semester courses list
+5.	Insert "programming" at index 2 in the my_course list
+6.	Remove element at index 1
+7.	Add “Math1” to index 1
+8.	Sort all courses in ascending order
+
+
+
+Lab  Tasks  #05
+
+Set Data Structures and Tuple in Python
+
+1.	Create the set of your two semester courses using add method
+2.	Remove the course data structure from the set 
+3.	Create a list of 10 even numbers in python and convert it into tuple
+4.	write a program in python with the help of a dictionary data structure that stores 10 words along with their meaning. perform following operations 
+I.	Only grab the words/courses/names from the dictionary data structure 
+II.	Only grab the meaning/courses id/student id from the dictionary data structure 
+III.	Exchange 5th word/course name/student name replace with other word
+IV.	Grab both words and meaning /courses with ids/student name with ids from dictionary data structure
+5.	write a program in python with the help of a dictionary data structure that stores the courses and assign a number key to each course of current semester perform above operations 
+6.	write a program in python with the help of a dictionary data structure that stores the names of 10 students of your class and and perform above operations 
+7.	Create a tuple of 10 elements with data types string, integer, and float.
+8.	Apply count and index method on the tuple created above.
+9.	Write a code in python in which make tuple mutable. 
+10.	Apply concatenation by adding 100 after your class id
