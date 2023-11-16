@@ -1,4 +1,4 @@
-
+import time
 with open('intro.txt', 'r') as file:
     for word in file: 
      my_list = word.split()
@@ -19,6 +19,11 @@ with open('intro.txt', 'r') as file:
 for value in set(var):
      count = var.count(value)
      ind = [i for i, x in enumerate(my_list) if x == value]
-     print(value, count ,'times in paragraph on index', ind)
-     
+     value = (value, count ,'times in paragraph on index', ind)
     
+     for char in value:
+         print(char , end=' ', flush=True)
+         time.sleep(0.1)  
+         
+     print()
+
