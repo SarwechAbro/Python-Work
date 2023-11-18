@@ -19,9 +19,9 @@ with open('intro.txt', 'r') as file:
 for value in set(var):
      count = var.count(value)
      ind = [i for i, x in enumerate(my_list) if x == value]
-     value = (value, count ,'times in paragraph on index', ind)
+     tuple = (value, count ,'times in paragraph on index', ind)
     
-     for char in value:
+     for char in tuple:
          print(char , end=' ', flush=True)
          time.sleep(0.1)  
          

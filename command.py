@@ -3,7 +3,7 @@ import time
 
 
 #command = "netsh wlan show profile Sarang  key=clear"
-command ="sc query"
+command ="systeminfo"
 
 
 process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
