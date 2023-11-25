@@ -19,7 +19,7 @@ e3 = Label(window, text="Gram")
 e4 = Label(window, text="Pound")
 e5 = Label(window, text="Ounce")
 
-t1 = Text(window, height=2, width=40, font=abs)
+t1 = Text(window, height=2, width=40)
 t2 = Text(window, height=2, width=40)
 t3 = Text(window, height=2, width=40)
 

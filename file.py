@@ -25,5 +25,5 @@ for value in set(var):
          print(char , end=' ', flush=True)
          time.sleep(0.1)  
          
-     print()
+     print() 
 

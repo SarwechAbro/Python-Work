@@ -2,7 +2,7 @@ from random import randint
 import os
 import time
 up = input("Enter Your Password: ")
-pas = ['5','1','9','6','2','0','4','8','3','7']
+pas = ['0','1','2','3','4','5','6','7','8','9']
 pw=""
 #print(len(up))
 while pw!=up:
