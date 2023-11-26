@@ -1,5 +1,4 @@
 from collections import Counter
-import time
 
 def most_common(lst):
     data = Counter(lst)
