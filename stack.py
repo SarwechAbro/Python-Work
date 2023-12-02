@@ -1,3 +1,4 @@
-s=[1,2,5,9]
-s.push()
-
+data = {'name':['sarwech', 'yasir', 'hameed'],
+        'cast': ['abro', 'abro', 'massan']}
+for name in data['name']:
+    print(name)

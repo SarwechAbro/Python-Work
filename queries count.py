@@ -11,4 +11,4 @@ with open('queries.txt', 'r') as file:
 
 count = words.count(most_common(words))
 ind = [i for i, x in enumerate(words) if x == (most_common(words))]
-print('most searched query in history is',most_common(words),'it is', count ,'times used in paragraph on index', ind)
+print('most searched query in history is',most_common(words),'it is', count ,'times used in search history on index', ind)
