@@ -13,7 +13,7 @@ while pw!=up:
               pw = ''.join(guess_pw)
               print('cracking password....', pw)
               coun+=1
-              #os.system("cls")
+              os.system("cls")
              
 print("Your Password Is: ",  end='',)            
 for char in pw:
