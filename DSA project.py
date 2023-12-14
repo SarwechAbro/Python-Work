@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-import lxml
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 import requests
 import pandas as pd
 import numpy as np
@@ -7,37 +8,35 @@ import re
 import string
 
 
+data = []
+title = ''
+urls = ['https://awamiawaz.pk/category/latest-news','https://awamiawaz.pk/category/sindh-news',
+'https://awamiawaz.pk/category/awami-awaz-tv','https://awamiawaz.pk/category/national',
+'https://awamiawaz.pk/category/todays-newspaper','https://awamiawaz.pk/category/articles',
+'https://awamiawaz.pk/category/international','https://awamiawaz.pk/category/sports',
+'https://awamiawaz.pk/category/entertainment','https://awamiawaz.pk/category/health',
+'https://awamiawaz.pk/category/special-reports','https://awamiawaz.pk/category/science-technology',
+'https://awamiawaz.pk/category/interesting-weird']
+for url in urls:
+     source = requests.get(url)
+     soup = BeautifulSoup(source.text,'html.parser')
+     contents = soup.find_all('div', class_='bs-pagination-wrapper main-term-none more_btn')
+     sections = soup.find_all('section', class_='archive-title category-title with-actions with-terms')
 
-url = 'https://books.sindhsalamat.com/book/87/read/2843'
-source = requests.get(url)
-soup = BeautifulSoup(source.text,'html.parser')
+     for section in sections: 
+          title = section.h1.span.text
+     for content in contents:             
+          girds = content.find_all('div', class_='listing listing-grid listing-grid-1 clearfix columns-3')
+          for gird in girds:
+               articles = gird.find_all('article')
+               for article in articles:
+                    items = article.find_all('div', class_='item-inner')
+                    for item in items:
+                         post_summary = item.find('div', class_='post-summary')
+                         data.append([title,post_summary.text.strip()])
 
-for paragraph in soup.find_all('article', class_='row card article-row'):
-     article = paragraph.main.p.text
-     
-
-url = 'https://books.sindhsalamat.com/book/87/read/2838'
-source = requests.get(url)
-soup = BeautifulSoup(source.text,'html.parser')
-
-for paragraph in soup.find_all('article', class_='row card article-row'):
-     article2 = paragraph.main.p.text
-     merged_articles = article + " " + article2
-     my_list = list(set(merged_articles.split())) 
-     #encoded_string = my_set.encode('utf-16')
-     #with open('python.txt', 'w') as f:
-          #f.write(my_set)
-          #f.close()
+df = pd.DataFrame(data, columns=["Titles", "Headings"])
+df.to_csv("news.csv", index=False)
+print(len(data))
 
 
- 
-
-my_list = [''.join(c for c in s if c not in string.punctuation + "؛؟،’’– ََ؛") for s in my_list]
-my_list = [word for word in my_list if not re.search(r'[a-zA-Z]', word)]
-encoded_list = ' '.join(my_list).encode('utf-8')
-with open('Book.txt', 'wb') as f:
-      f.write(encoded_list)
-      f.close()
-
-#for word in my_list:
-      #print(word)

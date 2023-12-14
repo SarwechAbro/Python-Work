@@ -1,4 +1,5 @@
-data = {'name':['sarwech', 'yasir', 'hameed'],
+data = {'name':[{'subcast':'massan'},
+                { 'yasir': 'hameed'}],
         'cast': ['abro', 'abro', 'massan']}
-for name in data['name']:
-    print(name)
+for name in data['']:
+    print(name['yasir'])
