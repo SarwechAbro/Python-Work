@@ -3,3 +3,5 @@ data = {'name':[{'subcast':'massan'},
         'cast': ['abro', 'abro', 'massan']}
 for name in data['']:
     print(name['yasir'])
+
+    
