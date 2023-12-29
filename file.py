@@ -7,8 +7,7 @@ qu = input("Ask Me Something: ")
 query = qu.split()
 with open('queries.txt', 'a') as f:
     for que in query:
-        f.write(que)
-        f.write(" ")
+        f.write(f'{que} ')
 var = []
 coun = 0 
 for words in query:

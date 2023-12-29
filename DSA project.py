@@ -7,7 +7,7 @@ urls = []
 Class = ''
 title = ''
 data = []
-
+working_urls = []
 with open('links.txt', 'r') as links_file:
      links = links_file.readlines()
      for link in links:
@@ -25,7 +25,7 @@ for url in urls:
                for span in spans: 
                     Class = span.get('class')
                     class_name = ' '.join(Class)   
-                    if class_name != 'term-badge term-40':
+                    if class_name != 'term-badge term-40' and class_name !='format-badge format-video':
                          title = span.a.text
                          print(title) 
                          break 
@@ -38,10 +38,16 @@ for url in urls:
                if '' in newss: 
                     newss.remove('')
                for news in newss:
+                    print(news)
                     data.append([title,news])
+                    working_urls.append(url)
 
 df = pd.DataFrame(data, columns=["Titles", "News"])
 df.to_csv("news.csv", index=False)
+with open('working_urls.txt', 'w') as file:
+     for url in working_urls:
+          file.write(f'{url}\n')
 print(len(data))
+
 
 

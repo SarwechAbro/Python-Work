@@ -2,7 +2,8 @@ import pandas as pd
 name = input('Enter Your Name: ')
 data= []
 topic = 'name'
-namea = name.strip('.')
+for nam in name:
+    namea = name.strip('')
 s_name = namea.split('.')
 for n in s_name:
     data.append([topic,n])
