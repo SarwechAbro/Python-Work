@@ -55,7 +55,7 @@ df.to_csv("news.csv", index=False)
 #with open('working_urls.txt', 'w') as file:
      #for url in working_urls:
           #file.write(f'{url}\n')
-print(len(data))
+#print(len(data))
 
 
 
