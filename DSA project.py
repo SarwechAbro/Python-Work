@@ -7,7 +7,7 @@ urls = []
 Class = ''
 title = ''
 data = []
-working_urls = []
+#working_urls = []
 with open('links.txt', 'r') as links_file:
      links = links_file.readlines()
      for link in links:
@@ -25,28 +25,36 @@ for url in urls:
                for span in spans: 
                     Class = span.get('class')
                     class_name = ' '.join(Class)   
-                    if class_name != 'term-badge term-40' and class_name !='format-badge format-video':
+                    if class_name != 'term-badge term-40' and class_name !='format-badge format-video' and class_name !='term-badge term-1':
                          title = span.a.text
                          print(title) 
                          break 
      for content in contents:
-          paragraph = content.find('p')
-          if paragraph:
-               text = paragraph.text.strip('.')
-               text = text.replace("\n", "")
-               newss = re.split(r'\.(?!\d)', text)
-               if '' in newss: 
-                    newss.remove('')
-               for news in newss:
-                    print(news)
-                    data.append([title,news])
-                    working_urls.append(url)
+          paragraphs = content.find_all('p')
+          for paragraph in paragraphs:
+               if paragraph:
+                    text = paragraph.text
+                    pat = r'[a-zA-Z]'
+                    if not re.search(pat, text):
+                         striped = text.strip(".")
+                         replaced = striped.replace("\n", "")
+                         newss = re.split(r'\.(?!\d)', replaced)
+                         newss = [x.rstrip() for x in newss]
+                         for news in newss:
+                              if news:
+                                   news = news.replace("\xa0", "")
+                                   final_newss = re.split(r"،", news)
+                                   print(final_newss)
+                                   for news in final_newss:
+                                        #print(news)
+                                        data.append([title,news])
+                                        # working_urls.append(url)
 
 df = pd.DataFrame(data, columns=["Titles", "News"])
 df.to_csv("news.csv", index=False)
-with open('working_urls.txt', 'w') as file:
-     for url in working_urls:
-          file.write(f'{url}\n')
+#with open('working_urls.txt', 'w') as file:
+     #for url in working_urls:
+          #file.write(f'{url}\n')
 print(len(data))
 
 
