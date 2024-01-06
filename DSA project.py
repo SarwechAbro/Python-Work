@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import re
+import string
 
 urls = []
 Class = ''
@@ -42,13 +43,15 @@ for url in urls:
                          newss = [x.rstrip() for x in newss]
                          for news in newss:
                               if news:
-                                   news = news.replace("\xa0", "")
-                                   final_newss = re.split(r"،", news)
-                                   print(final_newss)
+                                   striped = news.strip('،')
+                                   subed = re.sub("\\s+", " ", striped)
+                                   final_newss = re.split(r'، (?=[^ \\d\\p{P}]+ )', subed)
+                                   final_newss = [x.rstrip() for x in final_newss]
+                                   #print(final_newss)
                                    for news in final_newss:
-                                        #print(news)
-                                        data.append([title,news])
-                                        # working_urls.append(url)
+                                        if len(news) > 5:
+                                             data.append([title,news])
+                                             #working_urls.append(url)
 
 df = pd.DataFrame(data, columns=["Titles", "News"])
 df.to_csv("news.csv", index=False)
