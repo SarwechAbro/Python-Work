@@ -9,5 +9,4 @@ for sem in my_list:
         my_list.remove(sem)
 print(len(my_list))
 for sem in my_list:
-   
     print(sem)

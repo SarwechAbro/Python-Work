@@ -1,3 +1,3 @@
-import math as da
-print(da.factorial(4))
+from sarwech import math
+print(math.div(4,5))
 
