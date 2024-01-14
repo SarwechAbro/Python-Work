@@ -2,17 +2,18 @@ import subprocess
 import time
 
 
-comman = "systeminfo"
-command = "netsh wlan show profile Sarang  key=clear"
-commands = [command,comman]
-colors = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6']
-for cmd in commands:
-     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
-     output, _ = process.communicate()
-     color = colors.pop(0) 
-     subprocess.run('color ' + color, shell=True)
-     colors.append(color)
+while True:
+   command = input('Enter Your command: ')
+   if command != 'exit':
+      process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+      output, _ = process.communicate()
 
-     for char in output.decode():
-        print(char, end='', flush=True)
-        time.sleep(0.009)  
+      for char in output.decode():
+         print(char, end='', flush=True)
+         time.sleep(0.004)  
+   else:
+      exit = 'Good bye from terminal of Sarwech if you want run again type python command.py in terminal window'
+      for char in exit:
+         print(char, end='', flush=True)
+         time.sleep(0.009) 
+      break
