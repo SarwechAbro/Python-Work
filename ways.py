@@ -1,8 +1,8 @@
 from random import*
 import math
 i = 0
-my_elements = ['a','b','c','d','e','f']
-element_to_show = 4
+my_elements = ['a','b','c','d','e','f','g']
+element_to_show = 7
 ways = (math.factorial(len(my_elements)) / math.factorial(len(my_elements) - element_to_show))
 data1 = ''
 final = []

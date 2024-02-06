@@ -12,7 +12,7 @@ while True:
          print(char, end='', flush=True)
          time.sleep(0.004)  
    else:
-      exit = 'Good bye from terminal of Sarwech if you want run again type python command.py in terminal window'
+      exit = "Good bye from Sarwech's terminal if do you want to run again type python command.py in terminal window thank you."
       for char in exit:
          print(char, end='', flush=True)
          time.sleep(0.009) 
