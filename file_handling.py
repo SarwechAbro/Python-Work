@@ -7,5 +7,4 @@ cl = input("Enter Your Class: ")
 details = []
 details.append([name,cast,cl])
 df = pd.DataFrame(details, columns=["Name","Cast","Class"])
-with open("students.csv", "r") as file:
-    file.write(details.tostring())
+df.to_csv("students.csv", index=False) 
