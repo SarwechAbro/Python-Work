@@ -1,5 +1,5 @@
 class Car:
-    def __init__(self, name, model):
+    def __init__(self, name=None, model=None):
         self.name = name
         self.model = model
     
@@ -11,3 +11,6 @@ class Car:
         self.model = input("Enter Model: ")
     
 
+car = Car()
+car.get()
+print(car.name)
