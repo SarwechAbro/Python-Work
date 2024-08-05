@@ -13,4 +13,4 @@ class Car:
 
 car = Car()
 car.get()
-print(car.name)
+print(car)
