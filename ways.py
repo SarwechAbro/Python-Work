@@ -1,26 +1,22 @@
-from random import*
-import math
-from AyDictionary import AyDictionary
-i = 0
-my_elements = input("Enter latters of a word with space: ").split()
-print(my_elements)
-element_to_show = len(my_elements)
-ways = (math.factorial(len(my_elements)) / math.factorial(len(my_elements) - element_to_show))
-data1 = ''
-final = []
-for way in range(int(ways)):
-     data =  [my_elements[randint(0,len(my_elements)-1)] for _ in range(element_to_show)]
-     data1 = ''.join(data).lower()
-     if data1 not in final:
-           final.append(data1)
-     i+=1
-dict = AyDictionary()       
-for data in final:
-    #print(data)
-    for word in dict:
-        if word == data:
-            print(word)
-    
-    
+import enchant
+from itertools import permutations
 
-print("loop run times {}".format(i))
+latters = input("Enter latters of a word with space: ").split()
+i = 0
+final = []
+permutations_list = list(permutations(latters))
+
+for permutation in permutations_list:
+  data = ''.join(permutation)
+  i+=1
+  if data not in final:
+    final.append(data)
+dict = enchant.Dict('en_US')    
+for word in final:
+    #print(word)
+    is_eng_word = dict.check(word)
+    #print(is_eng_word) 
+    if is_eng_word:
+        print(word)
+print(f'there are {i} posibilties of words from these latters')
+    
