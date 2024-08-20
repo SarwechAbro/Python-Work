@@ -1,19 +1,23 @@
 import itertools
 import enchant
 
-def possible_words(letters, max_length):
-  dict = enchant.Dict('en_US')
-  words = set()  
-  for length in range(1, max_length + 1):
+
+i = 0
+dict = enchant.Dict('en_US')
+words = set() 
+letters = input("Enter letters without space: ") 
+min = int(input("Enter minimum number of latters of word: "))
+for length in range(1,  len(letters) + 1):
     for combo in itertools.product(letters, repeat=length):
         word=''.join(combo)
         if dict.check(word):
-            words.add(word)
-  return words
-
-letters = input("Enter letters of a word without space: ")
-result = possible_words(letters, len(letters))
-for word in result:
+          words.add(word)
+        i+=1
+list_words = list(words)
+sorted_words = sorted(list_words)
+for word in sorted_words:
+  if len(word) >= min:
     print(word)
     
-print(f"There are {len(result)} possible words from these letters")
+print(f"There are {len(words)} possiblities of correct words from these letters")
+print(f"There are {i} possible combinations can be arranged from these letters")
