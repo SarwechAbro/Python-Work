@@ -10,7 +10,7 @@ def download_video(url, output_folder, output_filename='%(title)s.%(ext)s'):
     ydl_opts = {
         'format': 'bestvideo[height<=720]+bestaudio/best[height<=720]',  # Download video with 720p or lower
         'outtmpl': output_path,  # Output file name template with folder path
-        'noplaylist': True,      # Download only the single video, not a playlist
+        'noplaylist': False,      # Download only the single video, not a playlist
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:

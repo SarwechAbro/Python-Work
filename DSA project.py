@@ -34,8 +34,7 @@ for url in urls:
           for paragraph in paragraphs:
                if paragraph:
                     text = paragraph.text
-                    pat = r'[a-zA-Z]'
-                    if not re.search(pat, text):
+                    if not re.search(r'[a-zA-Z]', text):
                          striped = text.strip(".")
                          replaced = striped.replace("\n", "")
                          newss = re.split(r'\.(?!\d)', replaced)
